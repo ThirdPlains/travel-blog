@@ -18,7 +18,7 @@ app.use(express.static("public"));
 
 app.set("view engine", "ejs");
 
-var port = 3004;
+var port = 3005;
 
 //Mongoose setup
 //this is your schema where you set up your data types 
