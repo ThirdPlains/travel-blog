@@ -1,0 +1,47 @@
+<% include partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= blog.title%></div>
+    <div class="ui top attached ">
+        <div class="item">
+         <img class="ui rounded image " src="<%=blog.image%>"> 
+        </div>
+        <div class="content">
+         <p><em><%=blog.created.toDateString()%></em><p>   
+        </div>
+        <div class="description">
+         <p><%= blog.body%></p>  
+        </div>
+        </br>
+        <form action="/blog/<%=blog._id%>/edit">
+        <button class="ui animated button big blue" tabindex="0">
+        <div class="visible content">Edit</div>
+        <div class = "hidden content">
+            <i class="edit icon"></i>
+        </div>
+        </button>
+        </form>
+        
+        <form action="/blog/<%=blog._id%>?_method=DELETE" method="POST">
+        <button class="ui animated button big red" tabindex="0">
+        <div class="visible content">Delete</div>
+        <div class = "hidden content">
+            <i class="trash icon"></i>
+        </div>
+        </button>    
+       </form>
+    </div>
+</div> 
+
+
+<!--the ui top attached segment gives a nice border that helps keep everything inside the contianer. The item class-->
+<!--is needed to for each tag that you want to display so it is included inside the container and the ui centered -->
+<!--rounded image gives you a nice centered image with slight rounded corners. check out semantic ui website under views to learn more-->
+
+<!--the toDateString() will change the format to a more readable english US version-->
+
+<!--Since HTML does not support PUT and DELETE request we need to use something called method override..so in the -->
+<!--action field we include the ejs blog.id and after the ejs brackets ?_method=DELETE so that express can read that -->
+<!--we are using method override and the method is DELETE. You need to npm install method-override so it works-->
+ 
+<% include partials/footer %>

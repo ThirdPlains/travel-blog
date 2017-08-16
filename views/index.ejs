@@ -1,0 +1,43 @@
+
+<% include partials/header %>
+
+<div class="ui main text container">
+    <div class="ui huge header">Travel Blog</div>
+    <div class="ui top attached segment">
+        <div class="ui divided items">
+            <% blogs.forEach(function(blog){ %>
+            
+        <div class="item">
+            <div class="image">
+                <img src="<%=blog.image%>">     
+            </div>
+                
+            <div class="content">
+                <a class="header" href="/blog/<%=blog._id %>"> <%=blog.title%></a>     
+            <div class="meta">
+                <p><em><%=blog.created.toDateString()%></em><p>    
+            </div>
+                
+            <div class="description">
+                <p><%=blog.body.substring(0, 100)%>....</p>    
+            </div>
+                
+            <div class="extra">
+                <a class="ui floated basic green button" href="/blog/<%=blog._id %>" >Read More<i class="angle double right icon"></i></a>    
+            </div>
+            </div>
+            </div>
+         <% }) %>    
+        </div>
+    </div>
+</div>
+
+	      
+
+ 
+<!--the toDateString() will change the format to a more readable english US version-->
+<!--also the substring() method will help limit the character length of the post so that you dont see the full-->
+<!--lenght of the post until you click on more info-->
+ 
+
+<% include partials/header %>
